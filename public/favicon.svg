@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Glow Filters -->
+    <filter id="glow-cyan" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="glow-purple" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Gradients -->
+    <linearGradient id="orbit-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f3ff" />
+      <stop offset="100%" stop-color="#0066ff" />
+    </linearGradient>
+
+    <linearGradient id="flask-glass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9" />
+      <stop offset="40%" stop-color="#e0f7fc" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#a5c0ee" stop-opacity="0.3" />
+    </linearGradient>
+
+    <linearGradient id="liquid-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d2ff" />
+      <stop offset="50%" stop-color="#7b2cbf" />
+      <stop offset="100%" stop-color="#4a00e0" />
+    </linearGradient>
+
+    <radialGradient id="bubble-cyan" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#80effe" />
+      <stop offset="60%" stop-color="#00aeef" />
+      <stop offset="100%" stop-color="#005588" />
+    </radialGradient>
+
+    <radialGradient id="bubble-purple" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#e0aaff" />
+      <stop offset="70%" stop-color="#9d4edd" />
+      <stop offset="100%" stop-color="#3c096c" />
+    </radialGradient>
+  </defs>
+
+  <!-- Centered Icon Group -->
+  <g transform="translate(0, 0)">
+    
+    <!-- Outer Atomic Orbit (Tilted Left) -->
+    <ellipse cx="256" cy="280" rx="190" ry="65" 
+             fill="none" 
+             stroke="url(#orbit-grad)" 
+             stroke-width="18" 
+             stroke-linecap="round"
+             transform="rotate(-28, 256, 280)" 
+             filter="url(#glow-cyan)" />
+
+    <!-- Outer Atomic Orbit (Tilted Right) -->
+    <ellipse cx="256" cy="280" rx="190" ry="65" 
+             fill="none" 
+             stroke="url(#orbit-grad)" 
+             stroke-width="18" 
+             stroke-linecap="round"
+             transform="rotate(28, 256, 280)" 
+             filter="url(#glow-cyan)" />
+
+    <!-- Flask Base & Neck (Glass Outer Shape) -->
+    <path d="M 216 160 
+             L 216 175 
+             C 216 185 210 195 200 210 
+             L 142 300 
+             C 125 325 140 360 170 360 
+             L 342 360 
+             C 372 360 387 325 370 300 
+             L 312 210 
+             C 302 195 296 185 296 175 
+             L 296 160 Z" 
+          fill="url(#flask-glass)" />
+
+    <!-- Liquid Inside Flask -->
+    <g clip-path="url(#flask-clip)">
+      <path d="M 142 300 
+               C 125 325 140 360 170 360 
+               L 342 360 
+               C 372 360 387 325 370 300 
+               L 322 225 
+               C 270 260 230 210 190 235 Z" 
+            fill="url(#liquid-grad)" 
+            filter="url(#glow-purple)" />
+      
+      <!-- Bubbles inside Liquid -->
+      <circle cx="280" cy="315" r="22" fill="url(#bubble-cyan)" />
+      <circle cx="252" cy="285" r="8" fill="#ffffff" opacity="0.8" />
+      <circle cx="276" cy="255" r="10" fill="url(#bubble-cyan)" />
+    </g>
+
+    <!-- Clip Path for Liquid Containment -->
+    <clipPath id="flask-clip">
+      <path d="M 216 160 L 216 175 C 216 185 210 195 200 210 L 142 300 C 125 325 140 360 170 360 L 342 360 C 372 360 387 325 370 300 L 312 210 C 302 195 296 185 296 175 L 296 160 Z" />
+    </clipPath>
+
+    <!-- Flask Rim (Top Lip) -->
+    <rect x="200" y="146" width="112" height="20" rx="10" fill="#ffffff" filter="url(#glow-cyan)" />
+
+    <!-- Glass Highlights / Reflections -->
+    <path d="M 224 180 L 175 258 C 170 266 160 270 155 260" 
+          fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" opacity="0.6" />
+    
+    <!-- Floating Floating Bubbles Above Flask -->
+    <circle cx="240" cy="100" r="24" fill="url(#bubble-cyan)" filter="url(#glow-cyan)" />
+    <circle cx="295" cy="130" r="14" fill="url(#bubble-purple)" filter="url(#glow-purple)" />
+    <circle cx="298" cy="85" r="12" fill="url(#bubble-cyan)" filter="url(#glow-cyan)" />
+
+  </g>
+</svg>
